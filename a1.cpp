@@ -115,10 +115,42 @@ void convertPhonetic() {
 
 		cout << " ";
 	}
+
+	cout << endl;
+}
+
+/* QUESTION 3
+Tail recursion is the practice of making a recursive call at the end of 
+a function. Since there is nothing else after this recursive call, the 
+call stack does not need to store additional information. 
+
+Yes. A recursive function can be made tail recursive if we increase the 
+amount of arguments it takes. For example, the factorial function can take
+one additional argument that stores the partial product and pass it along
+to the next call. This avoids the n*fact(n-1) at the end of a function. 
+For more complicated recursions, there is the continuation-passing style.
+*/
+
+int fact(int n, int product) {
+
+	if (n == 1) return product;
+	else return fact(n - 1, n*product);
+
+}
+
+void factorial() {
+	cout << "Please enter a number: ";
+	string number;
+	cin >> number;
+
+	int n = stoi(number);
+
+	cout << "The factorial of " << n << " is " << fact(n, 1);
 }
 
 int main()
 {
 	countLetter();
 	convertPhonetic();
+	factorial();
 }
