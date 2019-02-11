@@ -18,8 +18,8 @@ void countLetter() {
 
 	// iterate over chars
 	int count = 0;
-	for (char c : input) {
-		if (tolower(c) == loweredLetter) count++;
+	for (int i = 0; i < input.length(); i++) {
+		if (tolower(input[i]) == loweredLetter) count++;
 	}
 
 	cout << string("The letter ") << letter << " is repeated "
