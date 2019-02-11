@@ -134,6 +134,7 @@ For more complicated recursions, there is the continuation-passing style.
 int fact(int n, int product) {
 
 	if (n == 1) return product;
+	else if (n == 0) return 1;
 	else return fact(n - 1, n*product);
 
 }
@@ -145,7 +146,33 @@ void factorial() {
 
 	int n = stoi(number);
 
-	cout << "The factorial of " << n << " is " << fact(n, 1);
+	cout << "The factorial of " << n << " is " << fact(n, 1) << endl;
+}
+
+int enhancedFact(int n) {
+	int bases[] = { 1,2,6,24,120,720 };
+
+	if (n <= 6) return bases[n - 1];
+
+	int product = 1;
+	int iter = n;
+	while (iter > 6) {
+		product = product * iter;
+		iter--;
+	}
+	return product*bases[5];
+}
+
+void enhancedFactorial() {
+
+	cout << "Please enter a number: ";
+	string number;
+	cin >> number;
+
+	int n = stoi(number);
+
+	cout << "The factorial of " << n << " is " << enhancedFact(n) << endl;
+
 }
 
 int main()
@@ -153,4 +180,7 @@ int main()
 	countLetter();
 	convertPhonetic();
 	factorial();
+	enhancedFactorial();
+
+	return 0;
 }
