@@ -2,6 +2,9 @@
 #include <string>
 #include <locale>
 
+// COMPILING INSTRUCTIONS: g++ -std=c++11 a1.cpp
+//						  OR cl /EHsc a1.cpp (on Windows)
+
 using namespace std;
 
 void countLetter() {
